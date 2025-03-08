@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zašto te volim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffe6f2;
+            font-family: 'Bebas Neue', sans-serif;
+            text-align: center;
+            color: #b30059;
+            overflow-y: scroll; /* Ensure scrolling is possible */
+            padding: 20px;
+        }
+        .title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .reasons {
+            font-size: 24px;
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+        .nav {
+            margin-top: 20px;
+        }
+        .nav a {
+            text-decoration: none;
+            font-size: 24px;
+            color: #b30059;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: #ff66b2;
+        }
+
+        .floating-hearts {
+            position: absolute; /* Position relative to the body */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allow interaction with elements behind */
+            z-index: 9999;
+        }
+
+        /* Heart Shape */
+        .heart {
+            position: absolute;
+            width: 20px;  /* Smaller size */
+            height: 20px;  /* Smaller size */
+            background-color: rgba(255, 105, 180, 0.6); /* Lighter pink with opacity */
+            transform: rotate(45deg);
+            opacity: 0.8;  /* Lower opacity */
+            z-index: 9999;
+        }
+
+        /* Heart Shape with ::before and ::after to create heart effect */
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: inherit;
+        }
+
+        .heart::before {
+            left: 0;
+            top: -10px;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 10px;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+            50% { transform: translateY(-30px) rotate(45deg); opacity: 0.8; }
+            100% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+        }
+
+        /* Apply animation to hearts */
+        .heart {
+            animation: float 3s infinite ease-in-out;
+        }
+
+        /* Button styling */
+        .flower-button {
+            background-color: #ff66b2;
+            color: white;
+            font-size: 24px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .flower-button:hover {
+            background-color: #b30059;
+        }
+
+        /* Flower falling animation */
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(50vh); opacity: 1; }
+        }
+
+        /* Exploding confetti effect */
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.5); opacity: 0; }
+        }
+
+        /* Flower image styling */
+        .flower {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url('flower.png'); /* Replace with the path to your flower image */
+            background-size: contain; /* Ensure the flower is properly sized */
+            background-repeat: no-repeat;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 1; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">Zašto te volim ❤️</div>
+    <div class="reasons">
+        1. Tvoj osmeh mi ulepšava svaki dan.<br>
+        2. Uvek me razumeš i podržavaš u svemu.<br>
+        3. Imaš najlepše oči u kojima mogu da se izgubim.<br>
+        4. Tvoj glas mi pruža osećaj mira i sreće.<br>
+        5. Uz tebe se osećam kao najsrećnija osoba na svetu.<br>
+        6. Volim način na koji me gledaš, pun ljubavi i nežnosti.<br>
+        7. Tvoje sitnice koje radiš za mene čine moj život posebnim.<br>
+        8. Uvek znaš kako da me nasmeješ, čak i kad mi nije dan.<br>
+        9. Zajedno smo najbolji tim.<br>
+        10. Zato što si ti najbolja osoba koju najviše volim na svetu ❤️<br><br>
+        
+        11. Držiš me za ruku i kad niko ne gleda.<br>
+        12. Interesuje te sve što mi se dešava u životu.<br>
+        13. Poštuješ me i imaš previše razumevanja za mene.<br>
+        14. Svaki trenutak s tobom je nezaboravan.<br>
+        15. Ti si moja srodna duša koju sam čekao celog života.<br>
+        16. Tvoj dodir me smiruje i donosi mi sigurnost.<br>
+        17. Tu si za mene i u teškim trenucima.<br>
+        18. Uvek želiš da budeš pored mene i uvek želiš da smo zajedno.<br>
+        19. Volim tvoju snagu i nežnost u isto vreme.<br>
+        20. Svaki trenutak sa tobom je pravo blago.<br><br>
+
+        21. TUvek veruješ u mene.<br>
+        22. Dozvoljavaš mi da radim glupe stvari.<br>
+        23. Smeješ se na moje gluposti.<br>
+        24. Imaš najbolji ukus za muziku i filmove.<br>
+        25. Zbog tebe verujem u pravu ljubav i srodne duše.<br>
+    </div>
+    
+    <div class="nav">
+        <a href="8. mart.html">Nazad na početnu</a>
+    </div>
+
+    <!-- Flower Button -->
+    <button class="flower-button" onclick="showFlowers()">Želiš još cveća?</button>
+
+    <div class="floating-hearts"></div>
+
+    <script>
+        // Flower falling effect
+        function showFlowers() {
+            for (let i = 0; i < 101; i++) {
+                setTimeout(() => {
+                    const flower = document.createElement('div');
+                    flower.classList.add('flower');
+
+                    // Random horizontal position within the viewport (avoid going out of bounds)
+                    const maxLeft = window.innerWidth - 80;  // Subtract flower's width
+                    flower.style.left = `${Math.random() * maxLeft}px`; // Random position within the screen
+
+                    // Calculate a start position just above the current viewport
+                    const flowerStartPosition = window.scrollY - Math.random() * 200;
+                    flower.style.top = `${flowerStartPosition}px`;  // Flower starts above the screen view
+
+                    // Set the flower animation to make it fall
+                    flower.style.animation = `fall 3s ease-in forwards`;
+
+                    // Append flower to body (it will not affect page scroll)
+                    document.body.appendChild(flower);
+
+                    // Remove flower after animation completes (3 seconds)
+                    setTimeout(() => {
+                        flower.remove();
+                    }, 3000);
+                }, i * 50); // Stagger each flower by 50 milliseconds
+            }
+        }
+
+
+
+
+        // Floating hearts on mouse move
+        document.addEventListener('mousemove', function(e) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${e.pageX - 15}px`;
+            heart.style.top = `${e.pageY - 15}px`;
+            document.querySelector('.floating-hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>

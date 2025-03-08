@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srećan 8. mart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+            background-color: #ffe6f2;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .landing {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6f2;
+            color: #d63384;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .flower {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            animation: float 5s infinite ease-in-out;
+            z-index: 10;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .flower {
+                width: 70px;
+                height: 70px;
+            }
+
+            /* Adjust positions for smaller screens */
+            .flower:nth-child(1) { top: 10%; left: 10%; }
+            .flower:nth-child(2) { top: 20%; left: 40%; }
+            .flower:nth-child(3) { top: 50%; left: 70%; }
+            .flower:nth-child(4) { top: 15%; left: 60%; }
+            .flower:nth-child(5) { top: 55%; left: 20%; }
+            .flower:nth-child(6) { top: 40%; left: 5%; }
+            .flower:nth-child(7) { top: 30%; left: 85%; }
+            .flower:nth-child(8) { top: 10%; left: 25%; }
+            .flower:nth-child(9) { top: 75%; left: 50%; }
+        }
+
+        @media (max-width: 480px) {
+            .flower {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Adjust positions further for very small screens */
+            .flower:nth-child(1) { top: 5%; left: 5%; }
+            .flower:nth-child(2) { top: 15%; left: 35%; }
+            .flower:nth-child(3) { top: 45%; left: 60%; }
+            .flower:nth-child(4) { top: 12%; left: 55%; }
+            .flower:nth-child(5) { top: 50%; left: 10%; }
+            .flower:nth-child(6) { top: 35%; left: 2%; }
+            .flower:nth-child(7) { top: 25%; left: 80%; }
+            .flower:nth-child(8) { top: 7%; left: 20%; }
+            .flower:nth-child(9) { top: 70%; left: 45%; }
+        }
+
+        .nav {
+            margin-top: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-size: 24px;
+            color: #b30059;
+            margin: 10px;
+        }
+
+        .content {
+            padding: 50px;
+            background-color: #d63384;
+            color: #ffe6f2;
+        }
+
+        .content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .images-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .image {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .image:hover {
+            transform: scale(1.05);
+        }
+
+        .image-scroll {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .image-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-message {
+            font-size: 26px;
+            margin-top: 50px;
+            background-color: #d63384;
+            color: #ffe6f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-message-large {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #ffe6f2;
+            background-color: #d63384;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .extra-section {
+            padding: 50px;
+            background-color: #ffe6f2;
+            color: #d63384;
+        }
+
+        .extra-section p {
+            font-size: 24px;
+        }
+
+        .extra-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .extra-section-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .extra-section-images img {
+            width: 100%;
+            max-width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .extra-section-images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Style for the Love Letter Generator */
+        .love-letter {
+            margin-top: 30px;
+        }
+
+        .love-letter button {
+            background-color: #d63384;
+            color: #ffe6f2;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .love-letter button:hover {
+            background-color: #b30059;
+        }
+
+        #love-letter {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #d63384;
+        }
+
+        /* Floating hearts container */
+        .floating-hearts {
+            position: absolute; /* Position relative to the body */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allow interaction with elements behind */
+            z-index: 9999;
+        }
+
+        /* Heart Shape */
+        .heart {
+            position: absolute;
+            width: 20px;  /* Smaller size */
+            height: 20px;  /* Smaller size */
+            background-color: rgba(255, 105, 180, 0.6); /* Lighter pink with opacity */
+            transform: rotate(45deg);
+            opacity: 0.8;  /* Lower opacity */
+            z-index: 9999;
+        }
+
+        /* Heart Shape with ::before and ::after to create heart effect */
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: inherit;
+        }
+
+        .heart::before {
+            left: 0;
+            top: -10px;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 10px;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+            50% { transform: translateY(-30px) rotate(45deg); opacity: 0.8; }
+            100% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+        }
+
+        /* Apply animation to hearts */
+        .heart {
+            animation: float 3s infinite ease-in-out;
+        }
+
+
+        .generisi {
+            color: #b30059;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Landing Page -->
+    <div class="landing">
+        <div class="message">Srećan 8. mart ljubavi, volim te najviše na svetu</div>
+        
+        <img src="flower.png" class="flower" style="top: 20%; left: 10%; animation-delay: 0s;">
+        <img src="flower.png" class="flower" style="top: 30%; left: 50%; animation-delay: 1s;">
+        <img src="flower.png" class="flower" style="top: 60%; left: 80%; animation-delay: 2s;">
+        <img src="flower.png" class="flower" style="top: 15%; left: 75%; animation-delay: 3s;">
+        <img src="flower.png" class="flower" style="top: 70%; left: 20%; animation-delay: 2s;">
+        <img src="flower.png" class="flower" style="top: 51%; left: 5%; animation-delay: 4s;">
+        <img src="flower.png" class="flower" style="top: 40%; left: 90%; animation-delay: 1s;">
+        <img src="flower.png" class="flower" style="top: 10%; left: 35%; animation-delay: 5s;">
+        <img src="flower.png" class="flower" style="top: 80%; left: 50%; animation-delay: 0s;">
+        
+        <div class="nav">
+            <a href="zastoTeVolim.html">Zašto te volim?</a>
+        </div>
+    </div>
+
+    <!-- Love Letter Generator -->
+    <div class="love-letter">
+        <h2 class="generisi">Generiši ljubavno pismo</h2>
+        <button onclick="generateLoveLetter()">Generiši novo pismo</button>
+        <p id="love-letter"></p>
+    </div>
+
+    <div class="floating-hearts"></div>
+
+    <div class="content">
+        <h2>Izvini jer nisam sada pored tebe, ali želim da znaš da si mi sve u životu.</h2>
+        <p>Ovo su neke od mojih omiljenih naših slikica.</p>
+
+        <div class="images-container">
+            <img src="norm1.jpg" class="image image-scroll">
+            <img src="norm2.jpg" class="image image-scroll">
+            <img src="norm3.jpg" class="image image-scroll">
+            <img src="norm4.jpg" class="image image-scroll">
+            <img src="norm5.jpg" class="image image-scroll">
+        </div>
+    </div>
+
+    <div class="extra-section">
+        <h2>Volim to da kad smo zajedno, osećamo se slobodno i uvek smo oni pravi mi. Jednostavno smo srećni i uvek nasmejani.</h2>
+        
+        <div class="extra-section-images">
+            <img src="lud1.jpg" alt="Image 1">
+            <img src="lud2.jpg" alt="Image 2">
+            <img src="lud3.jpg" alt="Image 3">
+        </div>
+    </div>
+
+    <div class="extra-section">
+        <p>Srećan dan žena ljubavi! Želim ti svaki trenutak ispunjen ljubavlju, srećom i toplinom. Hvala ti što si moj oslonac, moj svet, i sve što imam. Tvoj osmeh i oči su moj najlepši poklon svakog dana!</p>
+    </div>
+
+    <div class="footer-message">Zauvek ću da te volim, čak i kada nisam pored tebe, jer si ti jedina stvar koja mi ulepšava život.</div>
+    <div class="footer-message-large">Zauvek mila!</div>
+
+    <script>
+        // Love Letter Generator (with 6 variations)
+        const loveLetters = [
+            "Želim da odvojim trenutak da ti se zahvalim. Hvala ti jer me voliš, jer me razumeš i jer si moja najveća podrška. Nikada nisam osećao ovo što osećam prema tebi, i sve je to zbog tebe mila. Ti si moje srce, moja duša i moj razlog za osmeh",
+            "Prava ljubav je nešto što svi traže a retko ko pronađe. Ja sam srećnik jer sam našao tebe, moje zauvek i moju srodnu dušu. Tvoje postojanje me ispunjava. Moje srce lupa samo za tebe, i voleću te do kraja svog života",
+            "Moj ljubav prema tebi raste iz dana u dan i svaki trenutak proveden pored tebe me podseća koliko sam srećan jer te imam. Ti si moj najbolji prijatelj, moje samopouzdanje i moja prava ljubav. Budućnost je naša mila, stvorena je za nas. Ti i ja zauvek.",
+            "Draga, ti si moj život, moje sve. Svaka sekunda sa tobom je najlepši deo mog života. Tvoje oči su moj svet, i tu želim da ostanem zauvek.",
+            "Razmišljao sam o tome koliko si mi promenila život. Svaki deo mog srca si ispunila ljubavlju i srećom. Pre tebe sam bio neispunjen, ali sada, sa tobom, osećam se kao da sam sve pronašao, sve što sam ikada želeo. Hvala ti što si ti ti.",
+            "Inspirišeš me u mnogim pravcima. Daješ mi snagu i tvoja ljubav i dobrota mi daje snagu da budem najbolja moguća osoba svakog dana. Kad gledam u tebe, vidim svoj život i svoju budućnost. Ponosan sam i srećan jer sam tvoj, i volim te beskonačno mnogo.",
+            "Znam da ume da nam bude teško ponekad mila, i da se susrećemo sa mnogim preprekama i poteškoćama. Ali kroz sve to, želim da znas da moja ljubav ostaje i jača još više. Zajedno možemo da prodjemo kroz sve. Zauvek sam tu za tebe. Zauvek!",
+            "Od trenutka kada sam te upoznao, znao sam da si ti ona, koju je moje srce čekalo. Ti si moja srodna duša, osoba sa kojom želim da podelim svoj život. Osoba sa kojom želim da podelim svaki lep trenutak, a i loš, jer mi u takvim trenucima najviše pokazuješ koliko mi značiš. Hvala ti što činiš svaki dan najlepšim. Volim te mila, zauvek.",
+        ];
+
+        function generateLoveLetter() {
+            const randomIndex = Math.floor(Math.random() * loveLetters.length);
+            document.getElementById('love-letter').innerText = loveLetters[randomIndex];
+        }
+
+        document.addEventListener('mousemove', function(e) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${e.pageX - 15}px`;  // Adjusted to follow the cursor
+            heart.style.top = `${e.pageY - 15}px`;   // Adjusted to follow the cursor
+            document.querySelector('.floating-hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 500);
+        });
+
+
+        // Scroll effect for images
+        const images = document.querySelectorAll('.image-scroll');
+        
+        function handleScroll() {
+            images.forEach(image => {
+                const rect = image.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    image.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+    </script>
+
+</body>
+</html>
